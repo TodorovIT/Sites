@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Кино Фестивал</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Хедър и навигация -->
+    <header>
+        <div class="container">
+            <h1>Кино Фестивал 2024</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Начало</a></li>
+                    <li><a href="#films">Филми</a></li>
+                    <li><a href="#about">За нас</a></li>
+                    <li><a href="#contact">Контакт</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Секция "Начало" -->
+    <section id="home">
+        <div class="hero">
+            <h2>Добре дошли на нашия фестивал!</h2>
+            <p>Вижте най-новите филми и събития.</p>
+            <a href="#drop" class="btn">Вижте програмата</a>
+        </div>
+        <h6 id="drop">5</h6>
+    </section>
+    
+
+    <!-- Секция "Филми" -->
+    <section id="films">
+        <div class="container">
+            <h2 >Програмата на фестивала</h2>
+            <div class="film-list">
+                <div class="film-item">
+                    <img src="film1.jpg" alt="Филм 1">
+                    <h3>Филм 1</h3>
+                    <p>Премиера: 1 октомври 2024 г.</p>
+                </div>
+                <div class="film-item">
+                    <img src="film2.jpg" alt="Филм 2">
+                    <h3>Филм 2</h3>
+                    <p>Премиера: 2 октомври 2024 г.</p>
+                </div>
+                <div class="film-item">
+                    <img src="film3.jpg" alt="Филм 3">
+                    <h3>Филм 3</h3>
+                    <p>Премиера: 3 октомври 2024 г.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция "За нас" -->
+    <section id="about">
+        <div class="container">
+            <h2>За нас</h2>
+            <p>Кино Фестивал 2024 събира най-добрите филми, режисьори и актьори от целия свят, като предлага на зрителите уникално преживяване.</p>
+        </div>
+    </section>
+
+    <!-- Секция "Контакт" -->
+    <section id="contact">
+        <div class="container">
+            <h2>Контакти</h2>
+            <form id="contact-form">
+                <input type="text" placeholder="Вашето име" required>
+                <input type="email" placeholder="Вашият имейл" required>
+                <textarea placeholder="Вашето съобщение" required></textarea>
+                <button type="submit">Изпрати</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Кино Фестивал. Всички права запазени.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        const header = document.querySelector('header');
+        const homeSection = document.querySelector('#home');
+        const title = document.querySelector('#home h1'); // Заглавие "Кино Фестивал 2024"
+    
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+    
+            // Промяна на навигацията на непрозрачна
+            if (scrollPosition > 50) { // Проверка за 50 пиксела скрол
+                header.classList.add('hidden'); // Добавя клас за непрозрачен фон
+                title.classList.add('hidden-title'); // Скрива заглавието
+            } else {
+                header.classList.remove('hidden'); // Премахва класа, когато е отгоре
+                title.classList.remove('hidden-title'); // Показва заглавието
+            }
+        });
+        document.querySelector('.btn').addEventListener('click', function(e) {
+            e.preventDefault(); // Предотвратява нормалното действие на бутона
+            const targetId = this.getAttribute('href'); // Взима идентификатора на секцията
+            const targetSection = document.querySelector(targetId); // Намира секцията
+    
+            // Плавно скролиране до секцията
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+    
+    
+</body>
+</html>

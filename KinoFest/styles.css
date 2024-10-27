@@ -1,0 +1,225 @@
+/* Общи стилове */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    background-color: rgba(30, 30, 30, 0.8); /* Прозрачен фон */
+    color: #fff;
+    scroll-behavior: smooth; /* Плавно скролиране за цялата страница */
+}
+
+/* Контейнер за целия сайт */
+.container {
+    width: 85%;
+    margin: 0 auto;
+}
+
+/* Навигация */
+header {
+    position: fixed; /* Фиксирано меню */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Полупрозрачен фон по подразбиране */
+    color: #fff;
+    padding: 1rem 0; /* Намалено padding за по-малка височина */
+    text-align: center;
+    z-index: 1000; /* Заден индекс за да е над другите елементи */
+    transition: background 0.3s ease; /* Плавен преход на фона */
+}
+
+header.hidden {
+    background: rgba(0, 0, 0, 1); /* Непрозрачен черен фон, когато е скрит */
+    padding: 0.5rem 0; /* Намалено padding */
+}
+h6{
+    color: #550a04;
+}
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: #ff9800;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #fff;
+}
+
+/* Секция Home с нов фон */
+#home {
+    background-image: url('https://wallpapers.com/images/hd/movie-theater-background-1920-x-1080-ap14a18y3n7z8df0.jpg'); /* Ясна фонова картина */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Фиксирано задно изображение */
+    padding: 12rem 0; /* Увеличено пространство около текста, за да не се наслагва */
+    text-align: center;
+    position: relative;
+    z-index: 1; /* По-висок z-index, за да е над фоновите елементи */
+}
+/* Заглавие в секцията Home */
+/* Заглавие в секцията Home */
+#home h1 {
+    transition: opacity 0.5s ease; /* Плавен преход на непрозрачността */
+}
+
+/* Скрито заглавие */
+.hidden-title {
+    opacity: 0; /* Скриваме заглавието */
+}
+
+/* Навигация */
+header {
+    position: fixed; /* Фиксирано меню */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Полупрозрачен фон по подразбиране */
+    color: #fff;
+    padding: 1rem 0; /* Намалено padding за по-малка височина */
+    text-align: center;
+    z-index: 1000; /* Заден индекс за да е над другите елементи */
+    transition: background 0.3s ease; /* Плавен преход на фона */
+}
+
+header.hidden {
+    background: rgba(0, 0, 0, 1); /* Непрозрачен черен фон, когато е скрит */
+    padding: 0.5rem 0; /* Намалено padding */
+}
+
+
+
+/* Стилове за херой */
+.hero {
+    color: #fff;
+    padding: 4rem 0; /* Добавяне на пространство за разделяне */
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.hero .btn {
+    background-color: rgba(255, 152, 0, 0.7); /* Полупрозрачен фон */
+    color: #fff;
+    padding: 0.75rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.hero .btn:hover {
+    background-color: rgba(230, 125, 34, 0.7);
+}
+
+section {
+    padding: 4rem 0;
+    background: rgba(30, 30, 30, 0.7); /* Полупрозрачна секция */
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.film-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.film-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    margin: 1rem;
+    border-radius: 10px;
+    width: 30%;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.film-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}
+
+.film-item img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+footer {
+    background: rgba(0, 0, 0, 0.5); /* Полупрозрачен фон за футера */
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border-radius: 5px;
+    border: none;
+    background: rgba(51, 51, 51, 0.7); /* Полупрозрачен фон за формите */
+    color: #fff;
+}
+
+form button {
+    background: rgba(255, 152, 0, 0.7); /* Полупрозрачен фон за бутона */
+    color: #fff;
+    padding: 0.75rem 2rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: rgba(230, 125, 34, 0.7);
+}
+
+/* Блър фонове и стилове на тялото */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px); /* Замъгляване на целия фон */
+    background: rgba(0, 0, 0, 0.6); /* Полупрозрачен фон */
+    z-index: -1; /* Под всички елементи */
+}
