@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            color: #fff;
+            text-align: center;
+            overflow: hidden; /* За да се избегне излизане на съдържанието извън екрана */
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/thumb-1920-1105340.jpg') no-repeat center center fixed;
+            background-size: cover;
+            opacity: 80%; /* Тук задаваме прозрачността на фона */
+            z-index: -1; /* Поставяме слоя с фона зад основното съдържание */
+        }
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6); /* Прозрачен черен фон, за да може текстът да се чете ясно */
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            z-index: 1; /* Уверяваме се, че съдържанието е над фоновото изображение */
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .timer {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+        .time-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .time-box span {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        .subscribe {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        input[type="email"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            width: 70%;
+            font-size: 1rem;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #00aeff;
+            color: #363636;
+            font-size: 1rem;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #b49c00;
+        }
+        footer {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Очаквайте скоро!</h1>
+        <p>Ние работим усърдно върху нещо невероятно. Абонирайте се, за да бъдете информирани първи, когато стартираме!</p>
+        
+        <!-- Таймер -->
+        <div class="timer">
+            <div class="time-box">
+                <span id="days">00</span>
+                <div>Дни</div>
+            </div>
+            <div class="time-box">
+                <span id="hours">00</span>
+                <div>Часа</div>
+            </div>
+            <div class="time-box">
+                <span id="minutes">00</span>
+                <div>Минути</div>
+            </div>
+            <div class="time-box">
+                <span id="seconds">00</span>
+                <div>Секунди</div>
+            </div>
+        </div>
+
+        <div class="subscribe">
+            <input type="email" id="email" placeholder="Въведете вашия имейл">
+            <button id="subscribeBtn">Абонирай се</button>
+        </div>
+        <p id="message" style="margin-top: 20px;"></p> <!-- Съобщение след абонация -->
+        <footer>© 2024 Кристиан Юлианов Тодоров. Всички права запазени.</footer>
+    </div>
+
+    <script>
+        // Задаване на крайната дата
+        var countDownDate = new Date("Dec 31, 2024 23:59:59").getTime();
+
+        // Актуализиране на таймера всяка секунда
+        var x = setInterval(function() {
+
+            // Текущо време
+            var now = new Date().getTime();
+            
+            // Разстояние между сега и крайната дата
+            var distance = countDownDate - now;
+            
+            // Изчисляване на времето за дни, часове, минути и секунди
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Показване на резултата в съответните елементи
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+            
+            // Ако отброяването е завършило
+            if (distance < 0) {
+                clearInterval(x);
+                document.querySelector(".timer").innerHTML = "Стартирахме!";
+            }
+        }, 1000);
+
+        // Логика за бутона "Абонирай се"
+        document.getElementById("subscribeBtn").addEventListener("click", function() {
+            var email = document.getElementById("email").value;
+
+            if (email) {
+                document.getElementById("message").innerText = "Благодарим ви! Абонирахте се успешно с имейл: " + email;
+                document.getElementById("email").value = ""; // Изчистване на полето за имейл
+            } else {
+                document.getElementById("message").innerText = "Моля, въведете валиден имейл.";
+            }
+        });
+    </script>
+
+</body>
+</html>
